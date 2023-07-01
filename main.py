@@ -1,35 +1,53 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+from fastapi import FastAPI, HTTPException
+from models import User, Gender, Role
+from uuid import UUID
+from typing import List
 
 app = FastAPI()
 
-# Volatile users list to mock database users table
-users = []
-
-class User(BaseModel):
-    id: int
-    username: str
-    email: str
-    password: str
+db: List[User] = [
+    User(
+        id=UUID("d76afafa-bb02-4498-9581-d02691728e9b"),
+        firstname="Bayrem",
+        lastname="Gharsellaoui",
+        email="garssallaoui.bayrem@gmail.com",
+        username="bayrem",
+        password="supersecret",
+        gender=Gender.male,
+        roles=[Role.student, Role.admin]
+    ),
+    User(
+        id=UUID("11045555-7a83-4ae7-8f27-ec3e3edff67e"),
+        firstname="Lorem",
+        lastname="Ipsum",
+        email="lorem.ipsum@gmail.com",
+        username="lorem",
+        password="supersecret123",
+        gender=Gender.male,
+        roles=[Role.student]
+    )
+]
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to resto API"}
+    return {"Hello": "World"}
 
-@app.get("/users")
-async def get_users():
-    return users
+@app.get("/api/v1/users")
+async def fetch_users():
+    return db
 
-@app.get("/users/{user_id}")
-async def get_user(user_id: int):
-    return users[user_id - 1]
+@app.post("/api/v1/users")
+async def register_user(user: User):
+    db.append(user)
+    return {"id": user.id}
 
-@app.post("/users")
-async def add_user(user: User):
-    users.append(user)
-    return users[-1]
-
-@app.delete("/users/{user_id}")
-async def delete_user(user_id: int):
-    users.pop(user_id - 1)
-    return {}
+@app.delete("/api/v1/users/{user_id}")
+async def delete_user(user_id: UUID):
+    for user in db:
+        if user.id == user_id:
+            db.remove(user)
+            return
+    raise HTTPException(
+        status_code=404,
+        detail=f"user with id: {user_id} does not exist"
+    )
