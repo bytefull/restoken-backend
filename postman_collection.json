@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "df1770e6-0c34-4f71-bcf7-a937104dbf04",
-		"name": "resto",
+		"name": "restoken",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2244139"
 	},
@@ -12,13 +12,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://0.0.0.0:8000",
+					"raw": "http://localhost:8000",
 					"protocol": "http",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"localhost"
 					],
 					"port": "8000"
 				}
@@ -32,7 +29,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"bayrem\",\r\n  \"email\": \"bayrem@bytefull.com\",\r\n  \"password\": \"shabang\"\r\n}",
+					"raw": "{\r\n    \"firstname\": \"Example\",\r\n    \"lastname\": \"Ipsum\",\r\n    \"email\": \"example.example@gmail.com\",\r\n    \"username\": \"example\",\r\n    \"password\": \"supersecret987\",\r\n    \"gender\": \"female\",\r\n    \"roles\": [\r\n        \"student\"\r\n    ]\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,16 +37,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://0.0.0.0:8000/users",
+					"raw": "http://localhost:8000/api/v1/users",
 					"protocol": "http",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"users"
 					]
 				}
@@ -62,16 +58,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://0.0.0.0:8000/users",
+					"raw": "http://localhost:8000/api/v1/users",
 					"protocol": "http",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"users"
 					]
 				}
@@ -84,18 +79,17 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://0.0.0.0:8000/users/0",
+					"raw": "http://localhost:8000/api/v1/users/61a60f48-4d5f-4347-a1b9-edbe8a591820",
 					"protocol": "http",
 					"host": [
-						"0",
-						"0",
-						"0",
-						"0"
+						"localhost"
 					],
 					"port": "8000",
 					"path": [
+						"api",
+						"v1",
 						"users",
-						"0"
+						"61a60f48-4d5f-4347-a1b9-edbe8a591820"
 					]
 				}
 			},
