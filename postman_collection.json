@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "df1770e6-0c34-4f71-bcf7-a937104dbf04",
+		"_postman_id": "76ba76bf-d47c-4ce8-8d73-e99770b35e6a",
 		"name": "restoken",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2244139"
@@ -90,6 +90,37 @@
 						"v1",
 						"users",
 						"61a60f48-4d5f-4347-a1b9-edbe8a591820"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"roles\": [\r\n        \"admin\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/users/889107c7-125d-4568-8bc7-9c0c7a8e0b07",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"889107c7-125d-4568-8bc7-9c0c7a8e0b07"
 					]
 				}
 			},

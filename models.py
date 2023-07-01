@@ -20,3 +20,11 @@ class User(BaseModel):
     password: str
     gender: Gender
     roles: List[Role]
+
+class UserUpdateRequest(BaseModel):
+    firstname: Optional[str]
+    lastname: Optional[str]
+    username: Optional[str]
+    password: Optional[str]
+    gender: Optional[Gender]
+    roles: Optional[List[Role]]
