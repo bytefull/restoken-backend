@@ -2,5 +2,7 @@
 Backend for campus dining solution for college students
 
 ```bash
-$ uvicorn main:app --reload --host 0.0.0.0
+$ sudo service postgresql start
+$ pipenv 
+$ python3 run.py
 ```
