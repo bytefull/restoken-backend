@@ -1,8 +1,16 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, status, Depends
+from fastapi.security import OAuth2PasswordRequestForm
+from fastapi.responses import RedirectResponse
 from models import User, Gender, Role
 from uuid import UUID
 from typing import List
 from models import UserUpdateRequest
+from utils import (
+    get_hashed_password,
+    create_access_token,
+    create_refresh_token,
+    verify_password
+)
 
 app = FastAPI()
 
@@ -29,6 +37,11 @@ db: List[User] = [
     )
 ]
 
+@app.on_event("startup")
+async def on_startup():
+    # Not needed if you setup a migration system like Alembic
+    await create_db_and_tables()
+
 @app.get("/")
 async def root():
     return {"Hello": "World"}
@@ -39,6 +52,7 @@ async def fetch_users():
 
 @app.post("/api/v1/users")
 async def register_user(user: User):
+    user.password = get_hashed_password(user.password)
     db.append(user)
     return {"id": user.id}
 
@@ -74,3 +88,31 @@ async def update_user(user_update: UserUpdateRequest, user_id: UUID):
         status_code=404,
         detail=f"user with id: {user_id} does not exist"
     )
+
+@app.post('/api/v1/login')
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    # user = db.get(form_data.username, None)
+    user = None
+
+    for user_to_find in db:
+        if user_to_find.username == form_data.username:
+            user = user_to_find
+            break
+
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Incorrect email or password"
+        )
+
+    hashed_pass = user.password
+    if not verify_password(form_data.password, hashed_pass):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Incorrect email or password"
+        )
+    
+    return {
+        "access_token": create_access_token(user.email),
+        "refresh_token": create_refresh_token(user.email),
+    }
