@@ -13,6 +13,7 @@ passlib = "*"
 pyjwt = "*"
 python-multipart = "*"
 python-jose = "*"
+gunicorn = "*"
 
 [dev-packages]
 

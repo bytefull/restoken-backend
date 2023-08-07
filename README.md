@@ -32,7 +32,7 @@ $ sudo passwd postgres
 $ exit
 ```
 
-### Running instructions
+### Running the app
 
 ```bash
 # start postgresql service
@@ -50,4 +50,11 @@ $ pipenv install
 
 # run the application
 $ uvicorn restoken.app:app --reload --log-level debug
+```
+
+## The app is deployed on Azure [here](https://restoken.azurewebsites.net/docs)
+Azure app service will internally use this command to run the app:
+
+```bash
+$ gunicorn restoken.app:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --reload
 ```
