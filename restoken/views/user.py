@@ -25,7 +25,6 @@ user_router = APIRouter()
 def create_user(
     user: user_schema.UserCreate,
     db: Session = Depends(get_db),
-    user_data: models.User = Depends(get_current_user),
 ):
     db_user = user_crud.get_user_by_email(db, email=user.email)
     if db_user:
