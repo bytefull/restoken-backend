@@ -52,7 +52,7 @@ $ pipenv install
 $ netsh interface portproxy add v4tov4 listenport=8000 listenaddress=0.0.0.0 connectport=8000 connectaddress=172.30.15.113
 
 # run the application
-$ uvicorn restoken.app:app --reload --log-level debug
+$ uvicorn restoken.app:app --reload --log-level debug --host 0.0.0.0
 ```
 
 ## The app is deployed on Azure [here](https://restoken.azurewebsites.net/docs)

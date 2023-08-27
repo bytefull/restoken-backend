@@ -47,7 +47,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTYyMDM3fQ.NFtjXZBIuJ7NqLJrErNH1ZAndgSfxS0SorY1jjbO5ac",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTY3MDA5fQ.3JoBmpemTUGYY-rmamkO1NDrA0pQBYb7DhdJ30hyHmQ",
 									"type": "string"
 								}
 							]
@@ -571,6 +571,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": \"9872743a-0e65-44e1-95f7-571d39e9be37\",\r\n    \"restaurant_id\": 2,\r\n    \"amount\": 15,\r\n    \"timestamp\": 1693152741\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/v1/payment",
 							"protocol": "http",

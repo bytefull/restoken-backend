@@ -1,4 +1,4 @@
-from datetime import datetime
+import uuid
 
 from pydantic import BaseModel
 
@@ -7,10 +7,15 @@ class PaymentBase(BaseModel):
     pass
 
 
+class PaymentResult(PaymentBase):
+    status: str
+
+
 class PaymentCreate(PaymentBase):
-    card_id: int
+    customer_id: uuid.UUID
+    restaurant_id: int
     amount: int
-    created_at: datetime
+    timestamp: int
 
 
 class Payment(PaymentCreate):
