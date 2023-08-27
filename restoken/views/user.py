@@ -112,17 +112,17 @@ def login_for_access_token(
     return {"access_token": access_token, "token_type": "bearer"}
 
 
-@user_router.post("/{user_id}/orders", response_model=order_schema.Order)
+@user_router.post("/{user_id}/orders", response_model=order_schema.OrderCreateResponse)
 def create_user_order(
     user_id: uuid.UUID,
-    order: order_schema.OrderCreate,
+    order: order_schema.OrderCreateRequest,
     db: Session = Depends(get_db),
     user_data: models.User = Depends(get_current_user),
 ):
     return order_crud.create_user_order(db=db, order=order, user_id=user_id)
 
 
-@user_router.get("/{user_id}/orders", response_model=list[order_schema.Order])
+@user_router.get("/{user_id}/orders", response_model=list[order_schema.OrderCreateResponse])
 def read_user_orders(
     user_id: uuid.UUID,
     db: Session = Depends(get_db),

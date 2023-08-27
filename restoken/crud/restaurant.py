@@ -16,7 +16,7 @@ def get_restaurant_by_id(db: Session, restaurant_id: int):
     )
 
 
-def create_restaurant(db: Session, restaurant: schemas.RestaurantCreate):
+def create_restaurant(db: Session, restaurant: schemas.RestaurantCreateRequest):
     db_restaurant = models.Restaurant(**restaurant.model_dump())
     db.add(db_restaurant)
     db.commit()
@@ -27,7 +27,7 @@ def create_restaurant(db: Session, restaurant: schemas.RestaurantCreate):
 def delete_all_restaurants(db: Session):
     db.query(models.Restaurant).delete()
     db.commit()
-    restaurants: list[schemas.Restaurant] = []
+    restaurants: list[schemas.RestaurantBase] = []
     return restaurants
 
 

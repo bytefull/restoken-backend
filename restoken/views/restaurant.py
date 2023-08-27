@@ -9,20 +9,20 @@ from restoken.database import get_db
 restaurant_router = APIRouter()
 
 
-@restaurant_router.post("", response_model=schemas.Restaurant)
+@restaurant_router.post("", response_model=schemas.RestaurantCreateResponse)
 def create_restaurant(
-    restaurant: schemas.RestaurantCreate, db: Session = Depends(get_db)
+    restaurant: schemas.RestaurantCreateRequest, db: Session = Depends(get_db)
 ):
     return crud.create_restaurant(db=db, restaurant=restaurant)
 
 
-@restaurant_router.get("", response_model=list[schemas.Restaurant])
+@restaurant_router.get("", response_model=list[schemas.RestaurantBase])
 def read_restaurants(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     restaurants = crud.get_all_restaurants(db, skip=skip, limit=limit)
     return restaurants
 
 
-@restaurant_router.get("/{restaurant_id}", response_model=schemas.Restaurant)
+@restaurant_router.get("/{restaurant_id}", response_model=schemas.RestaurantBase)
 def read_restaurant(restaurant_id: int, db: Session = Depends(get_db)):
     db_restaurant = crud.get_restaurant_by_id(db, restaurant_id=restaurant_id)
     if db_restaurant is None:
@@ -30,7 +30,7 @@ def read_restaurant(restaurant_id: int, db: Session = Depends(get_db)):
     return db_restaurant
 
 
-@restaurant_router.delete("", response_model=list[schemas.Restaurant])
+@restaurant_router.delete("", response_model=list[schemas.RestaurantBase])
 def delete_restaurants(db: Session = Depends(get_db)):
     restaurants = crud.delete_all_restaurants(db)
     return restaurants

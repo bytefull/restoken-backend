@@ -14,8 +14,12 @@ class Order(Base):
         TIMESTAMP(timezone=True), nullable=False, server_default=text("now()")
     )
     customer_id = Column(UUID(as_uuid=True), ForeignKey("users.id"))
-    meal_id = Column(Integer, ForeignKey("meals.id"))
+    restaurant_id = Column(Integer, ForeignKey("restaurants.id"))
 
-    customer = relationship("User", back_populates="orders")
-    # Define the many-to-one relationship from Order to Meal
-    meal = relationship("Meal", back_populates="orders")
+    # Establish the relationship: Order to User (many-to-one)
+    # Many orders can be made by one user (either owner or customer)
+    user = relationship("User", back_populates="orders")
+
+    # Establish the relationship: Order to Restaurant (many-to-one)
+    # Many orders can be made in one restaurant
+    restaurant = relationship("Restaurant", back_populates="orders")
