@@ -10,13 +10,13 @@
 			"name": "users",
 			"item": [
 				{
-					"name": "users",
+					"name": "user",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"lorem.ipsum@web.com\",\r\n    \"username\": \"lorem\",\r\n    \"is_admin\": false,\r\n    \"password\": \"verysecretpassword\"\r\n}",
+							"raw": "{\r\n    \"email\": \"lorem.ipsum@web.com\",\r\n    \"username\": \"lorem\",\r\n    \"role\": \"customer\",\r\n    \"password\": \"verysecretpassword\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -47,7 +47,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwMzgyN30.fIpcujXTA1okHk7LZqAPqpoq4qe__gjSh2j5SNn0sME",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -93,7 +93,7 @@
 					"response": []
 				},
 				{
-					"name": "users",
+					"name": "user",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -131,7 +131,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwMzgyN30.fIpcujXTA1okHk7LZqAPqpoq4qe__gjSh2j5SNn0sME",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -139,7 +139,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/users/204b5f77-ad5c-48ed-90d0-64dbeea9fa12",
+							"raw": "http://localhost:8000/api/v1/users/9872743a-0e65-44e1-95f7-571d39e9be37",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -149,7 +149,7 @@
 								"api",
 								"v1",
 								"users",
-								"204b5f77-ad5c-48ed-90d0-64dbeea9fa12"
+								"9872743a-0e65-44e1-95f7-571d39e9be37"
 							]
 						}
 					},
@@ -184,7 +184,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwMzgyN30.fIpcujXTA1okHk7LZqAPqpoq4qe__gjSh2j5SNn0sME",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -210,23 +210,20 @@
 				},
 				{
 					"name": "login",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
 									"key": "username",
-									"value": "bayrem.garssallaoui@gmail.com",
+									"value": "john.vajohn@johnet.com",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "supersecret",
+									"value": "12345678",
 									"type": "text"
 								}
 							]
@@ -261,7 +258,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwNTYxN30.giuoRmb5onyLUsDwT8-vjrDszTG0KG4DXsQAAaWkJYM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -292,7 +289,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwMzgyN30.fIpcujXTA1okHk7LZqAPqpoq4qe__gjSh2j5SNn0sME",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -300,7 +297,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/users/204b5f77-ad5c-48ed-90d0-64dbeea9fa12/orders",
+							"raw": "http://localhost:8000/api/v1/users/63de1076-f5b8-41a3-8b1b-ecb4437c5c5f/orders",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -310,7 +307,7 @@
 								"api",
 								"v1",
 								"users",
-								"204b5f77-ad5c-48ed-90d0-64dbeea9fa12",
+								"63de1076-f5b8-41a3-8b1b-ecb4437c5c5f",
 								"orders"
 							]
 						}
@@ -318,14 +315,14 @@
 					"response": []
 				},
 				{
-					"name": "orders",
+					"name": "order",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwMzgyN30.fIpcujXTA1okHk7LZqAPqpoq4qe__gjSh2j5SNn0sME",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -334,7 +331,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"amount\": 86,\r\n    \"meal_id\": 4\r\n}",
+							"raw": "{\r\n    \"amount\": 15,\r\n    \"meal_id\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -342,7 +339,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/v1/users/204b5f77-ad5c-48ed-90d0-64dbeea9fa12/orders",
+							"raw": "http://localhost:8000/api/v1/users/9872743a-0e65-44e1-95f7-571d39e9be37/orders",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -352,7 +349,7 @@
 								"api",
 								"v1",
 								"users",
-								"204b5f77-ad5c-48ed-90d0-64dbeea9fa12",
+								"9872743a-0e65-44e1-95f7-571d39e9be37",
 								"orders"
 							]
 						}
@@ -388,7 +385,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiYXlyZW0uZ2Fyc3NhbGxhb3VpQGdtYWlsLmNvbSIsImV4cCI6MTY5MTMwNTYxN30.giuoRmb5onyLUsDwT8-vjrDszTG0KG4DXsQAAaWkJYM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLnZham9obkBqb2huZXQuY29tIiwiZXhwIjoxNjkzMTU2OTkxfQ.naJavDGM2y7lQc0BuqFQ0JfR6tSdxLLIpLPcghSL8p8",
 									"type": "string"
 								}
 							]
@@ -396,7 +393,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/orders/7",
+							"raw": "http://localhost:8000/api/v1/orders/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -406,7 +403,7 @@
 								"api",
 								"v1",
 								"orders",
-								"7"
+								"3"
 							]
 						}
 					},
@@ -439,7 +436,7 @@
 					"response": []
 				},
 				{
-					"name": "meals",
+					"name": "meal",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -495,7 +492,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/meals/2",
+							"raw": "http://localhost:8000/api/v1/meals/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -505,7 +502,7 @@
 								"api",
 								"v1",
 								"meals",
-								"2"
+								"6"
 							]
 						}
 					},
@@ -517,7 +514,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/meals/5",
+							"raw": "http://localhost:8000/api/v1/meals/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -527,7 +524,7 @@
 								"api",
 								"v1",
 								"meals",
-								"5"
+								"3"
 							]
 						}
 					},
@@ -560,7 +557,7 @@
 					"response": []
 				},
 				{
-					"name": "restaurants",
+					"name": "restaurant",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -637,6 +634,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:8000/api/v1/restaurants/8",
 							"protocol": "http",
@@ -660,7 +666,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8000/api/v1/restaurants/6",
+							"raw": "http://localhost:8000/api/v1/restaurants/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -670,7 +676,33 @@
 								"api",
 								"v1",
 								"restaurants",
-								"6"
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "payment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"payment"
 							]
 						}
 					},

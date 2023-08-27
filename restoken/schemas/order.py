@@ -13,7 +13,7 @@ class OrderCreate(OrderBase):
     meal_id: int
 
 
-class Order(OrderBase):
+class Order(OrderCreate):
     id: int
     customer_id: uuid.UUID
     created_at: datetime

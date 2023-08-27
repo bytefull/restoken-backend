@@ -16,7 +16,7 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     username = Column(String)
     hashed_password = Column(String)
-    is_admin = Column(Boolean, default=False)
+    role = Column(String)
     balance = Column(Integer, default=0)
 
     orders = relationship("Order", back_populates="customer")
