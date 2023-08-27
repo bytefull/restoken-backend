@@ -1,6 +1,6 @@
 import uuid
 
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
 
@@ -17,7 +17,7 @@ class User(Base):
     username = Column(String)
     hashed_password = Column(String)
     role = Column(String)
-    balance = Column(Integer, default=True)
+    balance = Column(Integer)
 
     # Establish the relationship: User to Restaurants (one-to-many)
     # A user (owner) can have many restaurants
