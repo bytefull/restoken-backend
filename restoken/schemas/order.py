@@ -5,17 +5,20 @@ from pydantic import BaseModel
 
 
 class OrderBase(BaseModel):
+    amount: int
+    restaurant_id: int
+
+
+class OrderCreateRequest(OrderBase):
     pass
 
 
-class OrderCreate(OrderBase):
-    amount: int
-    meal_id: int
+class OrderUpdateRequest(BaseModel):
+    pass
 
 
-class Order(OrderCreate):
+class OrderCreateResponse(OrderBase):
     id: int
-    customer_id: uuid.UUID
     created_at: datetime
 
     class Config:

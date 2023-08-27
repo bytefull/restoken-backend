@@ -18,7 +18,7 @@ def get_user_orders(db: Session, user_id: uuid.UUID):
     return db.query(models.Order).filter(models.Order.customer_id == user_id).all()
 
 
-def create_user_order(db: Session, order: schemas.OrderCreate, user_id: uuid.UUID):
+def create_user_order(db: Session, order: schemas.OrderCreateRequest, user_id: uuid.UUID):
     db_order = models.Order(**order.model_dump(), customer_id=user_id)
     db.add(db_order)
     db.commit()
@@ -29,7 +29,7 @@ def create_user_order(db: Session, order: schemas.OrderCreate, user_id: uuid.UUI
 def delete_all_orders(db: Session):
     db.query(models.Order).delete()
     db.commit()
-    orders: list[schemas.Order] = []
+    orders: list[schemas.OrderBase] = []
     return orders
 
 

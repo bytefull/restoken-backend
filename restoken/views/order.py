@@ -13,7 +13,7 @@ from restoken.crud.user import get_current_user
 order_router = APIRouter()
 
 
-@order_router.get("", response_model=list[schemas.Order])
+@order_router.get("", response_model=list[schemas.OrderCreateResponse])
 def read_orders(
     skip: int = 0,
     limit: int = 100,
@@ -24,7 +24,7 @@ def read_orders(
     return orders
 
 
-@order_router.delete("", response_model=list[schemas.Order])
+@order_router.delete("", response_model=list[schemas.OrderBase])
 def delete_orders(
     db: Session = Depends(get_db), user_data: models.User = Depends(get_current_user)
 ):

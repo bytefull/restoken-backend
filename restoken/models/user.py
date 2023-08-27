@@ -17,6 +17,12 @@ class User(Base):
     username = Column(String)
     hashed_password = Column(String)
     role = Column(String)
-    balance = Column(Integer, default=0)
+    balance = Column(Integer, default=True)
 
-    orders = relationship("Order", back_populates="customer")
+    # Establish the relationship: User to Restaurants (one-to-many)
+    # A user (owner) can have many restaurants
+    restaurants = relationship("Restaurant", back_populates="user")
+
+    # Establish the relationship: User to Orders (one-to-many)
+    # A user (either owner or customer) can have many orders
+    orders = relationship("Order", back_populates="user")
